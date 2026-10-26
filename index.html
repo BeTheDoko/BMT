@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f5f6fa" />
+    <meta name="description" content="A calm daily workspace for Bilal's study plan and timed tasks." />
+    <title>Daily Plan · Bilal Master Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}" />
+    <script defer src="{{ url_for('static', filename='js/app.js') }}"></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Main navigation">
+        <a class="brand" href="/" aria-label="Bilal Master Tracker home">
+          <span class="brand-mark">B<span>·</span></span>
+          <span class="brand-copy"><strong>Bilal</strong><small>MASTER TRACKER</small></span>
+        </a>
+
+        <div class="sidebar-label">WORKSPACE</div>
+        <nav class="nav-list">
+          <a class="nav-item active" href="/" aria-current="page">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.7"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.7"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.7"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.7"/></svg>
+            <span>Daily plan</span><span class="nav-dot"></span>
+          </a>
+          <a class="nav-item nav-muted" href="#academics" aria-disabled="true" title="Coming in a later step">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 9.2 12 4l8.5 5.2L12 14.4 3.5 9.2Z"/><path d="M6.5 11v5.2c3.3 2.7 7.7 2.7 11 0V11M20.5 9.5v6"/></svg><span>Academics</span>
+          </a>
+          <a class="nav-item nav-muted" href="#dsa" aria-disabled="true" title="Coming in a later step">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5 3.5 12 8 19M16 5l4.5 7-4.5 7M14 3 10 21"/></svg><span>DSA practice</span>
+          </a>
+          <a class="nav-item nav-muted" href="#technology" aria-disabled="true" title="Coming in a later step">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9h8M8 13h5M8 17h3"/></svg><span>Technologies</span>
+          </a>
+          <a class="nav-item nav-muted" href="#projects" aria-disabled="true" title="Coming in a later step">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7.5h6l2 2h8v9H4v-11Z"/><path d="M4 10h16"/></svg><span>Projects</span>
+          </a>
+          <a class="nav-item nav-muted" href="#career" aria-disabled="true" title="Coming in a later step">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="7" width="17" height="13" rx="2"/><path d="M8.5 7V5.5A1.5 1.5 0 0 1 10 4h4a1.5 1.5 0 0 1 1.5 1.5V7M3.5 12h17M10 12v2h4v-2"/></svg><span>Career prep</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <div class="sidebar-note"><span class="note-spark">✳</span><div><strong>One step at a time</strong><small>Your plan, at your pace.</small></div></div>
+          <div class="profile-row"><span class="avatar">B</span><span class="profile-copy"><strong>Bilal</strong><small>Personal workspace</small></span><span class="profile-menu" aria-hidden="true">···</span></div>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div class="crumb"><span>WORKSPACE</span><span class="crumb-slash">/</span><strong>DAILY PLAN</strong></div>
+          <div class="topbar-right"><span class="today-icon" aria-hidden="true">◷</span><span id="today-date">Today</span><span class="topbar-divider"></span><span id="live-clock" class="live-clock">--:--</span></div>
+        </header>
+
+        <section class="page-heading">
+          <div>
+            <div class="eyebrow"><span class="eyebrow-line"></span>YOUR DAILY WORKSPACE</div>
+            <h1>Make today <span>count.</span></h1>
+            <p class="heading-copy">A little progress, done with focus, adds up.</p>
+          </div>
+          <div class="heading-date"><span class="date-icon" aria-hidden="true">▦</span><div><small>PLANNING FOR</small><strong id="heading-date">Today</strong></div></div>
+        </section>
+
+        <section class="summary-grid" aria-label="Today's plan summary">
+          <article class="summary-card summary-primary">
+            <div class="summary-top"><span>Plan progress</span><span class="summary-symbol">↗</span></div>
+            <div class="summary-value"><strong id="progress-percent">0%</strong><span id="progress-count">0 of 0 tasks</span></div>
+            <div class="progress-track"><span id="progress-fill"></span></div>
+          </article>
+          <article class="summary-card">
+            <div class="summary-top"><span>On your list</span><span class="summary-icon icon-lavender">☷</span></div>
+            <div class="summary-value"><strong id="task-count">0</strong><span>tasks planned</span></div>
+            <div class="summary-foot"><span class="tiny-dot dot-blue"></span><span>Build a plan that fits your day</span></div>
+          </article>
+          <article class="summary-card">
+            <div class="summary-top"><span>Time set aside</span><span class="summary-icon icon-peach">◷</span></div>
+            <div class="summary-value"><strong id="planned-time">0m</strong><span>planned today</span></div>
+            <div class="summary-foot"><span class="tiny-dot dot-orange"></span><span id="time-foot">Your time, intentionally spent</span></div>
+          </article>
+        </section>
+
+        <div class="content-grid">
+          <div class="left-column">
+            <section class="panel run-panel" aria-labelledby="run-heading">
+              <div class="panel-heading">
+                <div><div class="section-kicker">FOCUS SESSION</div><h2 id="run-heading">Your daily run</h2></div>
+                <span id="schedule-status" class="status-pill status-idle"><span class="status-dot"></span>Not started</span>
+              </div>
+
+              <div class="active-card" id="active-card">
+                <div class="active-card-top"><span class="active-label"><span class="live-indicator"></span><span id="active-state-label">READY WHEN YOU ARE</span></span><span class="active-task-number" id="active-task-number">—</span></div>
+                <div class="active-main">
+                  <div class="active-task-copy"><h3 id="active-task-name">Your next task will show up here</h3><p id="active-task-note">Add a task and choose when you want to begin.</p></div>
+                  <div class="timer-wrap"><div class="timer-label" id="timer-label">TIME LEFT</div><div class="timer-display" id="timer-display">--:--</div></div>
+                </div>
+                <div class="active-time-row"><span class="time-icon" aria-hidden="true">◷</span><span id="active-time-range">Start your schedule to see the day take shape.</span></div>
+              </div>
+
+              <div class="schedule-controls">
+                <button class="button button-primary" id="start-button" type="button"><span class="button-play" aria-hidden="true">▶</span>Start schedule</button>
+                <button class="button button-primary hidden" id="resume-button" type="button"><span class="button-play" aria-hidden="true">▶</span>Resume</button>
+                <button class="button button-secondary hidden" id="pause-button" type="button"><span aria-hidden="true">Ⅱ</span>Pause</button>
+                <button class="button button-subtle hidden" id="complete-button" type="button"><span aria-hidden="true">✓</span>Complete task</button>
+                <button class="button button-subtle hidden" id="skip-button" type="button"><span aria-hidden="true">↷</span>Skip</button>
+                <button class="button button-subtle hidden" id="extend-button" type="button"><span aria-hidden="true">＋</span>Add 15 min</button>
+                <span class="control-spacer"></span>
+                <button class="icon-button hidden" id="stop-button" type="button" title="Stop the schedule" aria-label="Stop the schedule"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="6.5" width="11" height="11" rx="1.5"/></svg></button>
+                <button class="icon-button" id="reset-button" type="button" title="Reset today's run" aria-label="Reset today's run"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 11a7.5 7.5 0 1 1 2.1 5.2M4.5 5.5V11H10"/></svg></button>
+              </div>
+              <p class="schedule-hint" id="schedule-hint">The timer keeps its place if you refresh this page.</p>
+            </section>
+
+            <section class="panel task-panel" aria-labelledby="tasks-heading">
+              <div class="panel-heading task-list-heading">
+                <div><div class="section-kicker">YOUR CHECKLIST</div><h2 id="tasks-heading">Today's tasks <span class="heading-count" id="list-count">0</span></h2></div>
+                <span class="order-hint"><span aria-hidden="true">↕</span> Set your order</span>
+              </div>
+              <div id="task-list" class="task-list" aria-live="polite"></div>
+              <div id="empty-state" class="empty-state">
+                <div class="empty-illustration" aria-hidden="true"><span class="empty-sun">☀</span><span class="empty-check">✓</span><span class="empty-lines"></span></div>
+                <h3>A fresh page for today</h3>
+                <p>Add the first task you’d like to make time for.</p>
+                <button class="text-button" id="empty-add-button" type="button">＋ Add your first task</button>
+              </div>
+            </section>
+          </div>
+
+          <aside class="right-column">
+            <section class="panel composer-panel" aria-labelledby="composer-heading" id="task-composer">
+              <div class="panel-heading composer-heading">
+                <div><div class="section-kicker">PLAN YOUR TIME</div><h2 id="composer-heading">Add a task</h2></div>
+                <span class="composer-spark" aria-hidden="true">✳</span>
+              </div>
+              <p class="composer-copy">Give each activity a name and a realistic time slot.</p>
+              <form id="task-form" novalidate>
+                <input type="hidden" id="edit-task-id" />
+                <label class="field-label" for="task-name">Task name</label>
+                <input class="text-input" id="task-name" name="task-name" type="text" maxlength="100" placeholder="e.g. Study mathematics" autocomplete="off" required />
+                <div class="duration-label-row"><label class="field-label" for="duration-hours">How much time?</label><span class="field-helper">Set hours and minutes</span></div>
+                <div class="duration-inputs">
+                  <label class="duration-box"><input id="duration-hours" type="number" min="0" max="99" value="0" inputmode="numeric" aria-label="Duration in hours" /><span>hr</span></label>
+                  <span class="duration-colon">:</span>
+                  <label class="duration-box"><input id="duration-minutes" type="number" min="0" max="59" value="30" inputmode="numeric" aria-label="Duration in minutes" /><span>min</span></label>
+                </div>
+                <label class="field-label notes-label" for="task-notes">Note <span class="optional-label">OPTIONAL</span></label>
+                <textarea class="text-input notes-input" id="task-notes" maxlength="240" rows="3" placeholder="A small reminder for yourself…"></textarea>
+                <p class="form-error" id="form-error" role="alert"></p>
+                <div class="form-actions"><button class="button button-primary add-button" id="submit-task" type="submit"><span aria-hidden="true">＋</span>Add to my day</button><button class="button button-text hidden" id="cancel-edit" type="button">Cancel</button></div>
+              </form>
+              <div class="composer-footer"><span class="footer-check">✓</span><span>Small, focused blocks make a good day.</span></div>
+            </section>
+
+            <section class="tip-card">
+              <div class="tip-art" aria-hidden="true"><span class="tip-star">✦</span><span class="tip-circle"></span><span class="tip-book">▤</span></div>
+              <div class="tip-label">A NOTE FOR TODAY</div>
+              <p>Build in a little breathing room. Your plan should help you, not rush you.</p>
+            </section>
+          </aside>
+        </div>
+        <footer class="page-footer"><span>Made for steady progress.</span><span>Bilal Master Tracker <b>·</b> Daily plan</span></footer>
+      </main>
+    </div>
+  </body>
+</html>
