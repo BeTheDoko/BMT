@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f5f6fa" />
+    <meta name="description" content="Follow academic subjects, course outcomes, sessions, and topics." />
+    <title>Academics · Bilal Master Tracker</title>
+    <link rel="stylesheet" href="/app.css" />
+    <link rel="stylesheet" href="/academics.css" />
+    <script defer src="/academics.js"></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <!-- Place this where you want the sidebar to appear -->
+<div id="sidebar-container"></div>
+
+<script>
+  fetch('sidebar.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('sidebar-container').innerHTML = data;
+    });
+</script>
+
+      <main class="main-content academic-page">
+        <header class="topbar">
+          <div class="crumb"><span>WORKSPACE</span><span class="crumb-slash">/</span><strong>ACADEMICS</strong></div>
+          <div class="topbar-right"><span class="today-icon" aria-hidden="true">◷</span><span id="academic-date">Today</span></div>
+        </header>
+
+        <section class="academic-intro">
+          <div class="academic-title-block">
+            <div class="eyebrow"><span class="eyebrow-line"></span>ACADEMIC TRACKER</div>
+            <h1>Your learning, <span>in focus.</span></h1>
+            <p class="heading-copy">Follow each subject from its course outcomes down to the topics you study.</p>
+          </div>
+          <div class="academic-source-pill"><span class="source-pulse"></span><span><small>ACADEMIC DATA</small><strong>Not connected yet</strong></span></div>
+        </section>
+
+        <section class="academic-banner" aria-label="Academic tracker overview">
+          <div class="banner-copy">
+            <span class="banner-eyebrow">A CLEARER VIEW OF YOUR COURSEWORK</span>
+            <h2>One subject at a time.<br /><span>Every topic has a place.</span></h2>
+            <p>Your academic roadmap is organized around the way you learn: subject, course outcome, session, then topic.</p>
+          </div>
+          <div class="banner-art" aria-hidden="true">
+            <span class="art-orbit orbit-one"></span><span class="art-orbit orbit-two"></span>
+            <span class="art-book"><span></span><span></span><span></span></span>
+            <span class="art-star star-one">✦</span><span class="art-star star-two">✳</span>
+          </div>
+          <span class="banner-index" aria-hidden="true">01 <i>—</i> 04</span>
+        </section>
+
+        <div class="academic-grid">
+          <section class="panel roadmap-panel" aria-labelledby="roadmap-title">
+            <div class="panel-heading roadmap-heading">
+              <div><div class="section-kicker">YOUR COURSE STRUCTURE</div><h2 id="roadmap-title">Subject roadmap</h2></div>
+              <span class="preview-label"><span></span>Example preview</span>
+            </div>
+
+            <article class="preview-subject">
+              <div class="subject-heading">
+                <span class="subject-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5v-16Z"/><path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H20M8 7h8M8 10h6"/></svg></span>
+                <div class="subject-title"><span>SUBJECT</span><h3>Java</h3></div>
+                <span class="sample-tag">FROM YOUR BRIEF</span>
+              </div>
+
+              <div class="roadmap-flow" aria-label="Example academic path: Java, course outcome 3, session 14, topic Interfaces">
+                <div class="roadmap-step step-co">
+                  <span class="step-number">01</span><span class="step-label">COURSE OUTCOME</span><strong>CO 3</strong>
+                </div>
+                <span class="step-connector" aria-hidden="true"><i></i></span>
+                <div class="roadmap-step step-session">
+                  <span class="step-number">02</span><span class="step-label">SESSION</span><strong>Session 14</strong>
+                </div>
+                <span class="step-connector" aria-hidden="true"><i></i></span>
+                <div class="roadmap-step step-topic">
+                  <span class="step-number">03</span><span class="step-label">TOPIC</span><strong>Interfaces</strong>
+                </div>
+              </div>
+              <div class="preview-caption"><span class="caption-info" aria-hidden="true">i</span><span>This is the example path from your development brief, shown as a preview. It is not loaded from a live database.</span></div>
+            </article>
+
+            <div class="roadmap-bottom"><span class="roadmap-bottom-icon" aria-hidden="true">↳</span><span>Academic tasks can link back to their original session and topic.</span></div>
+          </section>
+
+          <aside class="academic-side-column">
+            <section class="panel structure-panel" aria-labelledby="structure-title">
+              <div class="section-kicker">HOW IT FITS TOGETHER</div>
+              <h2 id="structure-title">Your learning path</h2>
+              <div class="structure-list">
+                <div class="structure-item"><span class="structure-icon structure-subject">▤</span><span><strong>Subject</strong><small>The course you’re studying</small></span><span class="structure-order">01</span></div>
+                <span class="structure-link" aria-hidden="true"></span>
+                <div class="structure-item"><span class="structure-icon structure-co">◇</span><span><strong>Course outcome</strong><small>What you’re expected to learn</small></span><span class="structure-order">02</span></div>
+                <span class="structure-link" aria-hidden="true"></span>
+                <div class="structure-item"><span class="structure-icon structure-session">▦</span><span><strong>Session</strong><small>Where the learning happens</small></span><span class="structure-order">03</span></div>
+                <span class="structure-link" aria-hidden="true"></span>
+                <div class="structure-item"><span class="structure-icon structure-topic">✳</span><span><strong>Topic</strong><small>The specific material to cover</small></span><span class="structure-order">04</span></div>
+              </div>
+            </section>
+
+            <section class="data-note-card" aria-label="Academic data connection status">
+              <span class="data-note-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5.5" rx="7.5" ry="3"/><path d="M4.5 5.5v6c0 1.7 3.4 3 7.5 3 .9 0 1.8-.1 2.6-.2M19.5 5.5v4M4.5 11.5v6c0 1.7 3.4 3 7.5 3 1.1 0 2.1-.1 3-.3"/><path d="M15.5 16.5h7m-3.5-3.5v7"/></svg></span>
+              <div><strong>Waiting for live records</strong><p>Connect this page to your academic tables to show real subjects, sessions, and progress.</p></div>
+            </section>
+          </aside>
+        </div>
+
+        <section class="next-stage-card">
+          <div class="next-stage-mark" aria-hidden="true"><span>✦</span></div>
+          <div><div class="section-kicker">NEXT IN YOUR WORKSPACE</div><h2>Turn the roadmap into daily progress.</h2><p>When academic records are connected, you’ll be able to review pending topics and carry the right work into your daily plan.</p></div>
+          <span class="next-stage-arrow" aria-hidden="true">↗</span>
+        </section>
+
+        <footer class="page-footer"><span>Keep the big picture clear.</span><span>Bilal Master Tracker <b>·</b> Academics</span></footer>
+      </main>
+    </div>
+  </body>
+</html>
