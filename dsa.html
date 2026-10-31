@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f5f6fa" />
+  <meta name="description" content="A focused workspace for DSA problem practice and review." />
+  <title>DSA Practice · Bilal Master Tracker</title>
+  <link rel="stylesheet" href="/app.css" />
+  <link rel="stylesheet" href="/dsa.css" />
+  <script defer src="dsa.js"></script>
+</head>
+
+<body>
+  <div class="app-shell">
+
+    <div id="sidebar-container"></div>
+
+    <script>
+      fetch('sidebar.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('sidebar-container').innerHTML = data;
+        });
+    </script>
+
+    <main class="main-content dsa-page">
+      <header class="topbar">
+        <div class="crumb"><span>WORKSPACE</span><span class="crumb-slash">/</span><strong>DSA PRACTICE</strong></div>
+        <div class="topbar-right"><span class="today-icon" aria-hidden="true">◷</span><span id="dsa-date">Today</span>
+        </div>
+      </header>
+
+      <section class="dsa-intro">
+        <div class="dsa-title-block">
+          <div class="eyebrow"><span class="eyebrow-line"></span>PROBLEM SOLVING WORKSPACE</div>
+          <h1>Practice with <span>purpose.</span></h1>
+          <p class="heading-copy">Build problem-solving confidence by tracking each question, pattern, and review.</p>
+        </div>
+        <div class="dsa-source-pill"><span class="dsa-source-dot"></span><span><small>DSA RECORDS</small><strong>Not
+              connected yet</strong></span></div>
+      </section>
+
+      <section class="dsa-banner" aria-label="DSA practice overview">
+        <div class="dsa-banner-copy">
+          <span class="dsa-banner-eyebrow">THINK IT THROUGH, THEN MAKE IT STICK</span>
+          <h2>One problem at a time.<br /><span>Patterns grow with practice.</span></h2>
+          <p>Keep your questions organized and make space to revisit the ones that need another look.</p>
+        </div>
+        <div class="dsa-banner-art" aria-hidden="true">
+          <span class="node-line line-a"></span><span class="node-line line-b"></span><span
+            class="node-line line-c"></span><span class="node-line line-d"></span>
+          <span class="dsa-node node-root">{ }</span><span class="dsa-node node-left">[ ]</span><span
+            class="dsa-node node-right">&lt;/&gt;</span><span class="dsa-node node-leaf">↗</span>
+          <span class="dsa-art-spark spark-a">✦</span><span class="dsa-art-spark spark-b">·</span>
+        </div>
+        <span class="dsa-banner-word" aria-hidden="true">DSA</span>
+      </section>
+
+      <div class="dsa-content-grid">
+        <section class="panel problem-library" aria-labelledby="problem-library-title">
+          <div class="panel-heading library-heading">
+            <div>
+              <div class="section-kicker">YOUR PRACTICE SPACE</div>
+              <h2 id="problem-library-title">Problem library</h2>
+            </div>
+            <span class="library-status"><span></span>Waiting for records</span>
+          </div>
+          <div class="library-empty">
+            <div class="library-illustration" aria-hidden="true">
+              <span class="code-bracket">{ }</span><span class="code-line code-line-one"></span><span
+                class="code-line code-line-two"></span><span class="code-line code-line-three"></span><span
+                class="code-check">✓</span>
+            </div>
+            <h3>Your problem board is ready.</h3>
+            <p>Connect your DSA records to see saved problems, topics, difficulty, and review status here.</p>
+            <span class="library-footnote"><span class="small-lock" aria-hidden="true">○</span> No sample problems or
+              progress are being shown.</span>
+          </div>
+          <div class="library-footer"><span class="library-footer-icon" aria-hidden="true">⌘</span><span>When connected,
+              each problem can link to a topic and its practice history.</span></div>
+        </section>
+
+        <aside class="dsa-side-column">
+          <section class="panel practice-loop" aria-labelledby="practice-loop-title">
+            <div class="section-kicker">A SIMPLE PRACTICE LOOP</div>
+            <h2 id="practice-loop-title">From question to recall</h2>
+            <div class="loop-list">
+              <div class="loop-item"><span class="loop-number">01</span><span class="loop-icon loop-pick"
+                  aria-hidden="true">⌕</span><span><strong>Choose a problem</strong><small>Start with a clear
+                    goal.</small></span></div>
+              <span class="loop-connector" aria-hidden="true"></span>
+              <div class="loop-item"><span class="loop-number">02</span><span class="loop-icon loop-solve"
+                  aria-hidden="true">⌘</span><span><strong>Work the pattern</strong><small>Explain the approach in your
+                    own words.</small></span></div>
+              <span class="loop-connector" aria-hidden="true"></span>
+              <div class="loop-item"><span class="loop-number">03</span><span class="loop-icon loop-review"
+                  aria-hidden="true">↻</span><span><strong>Review and revisit</strong><small>Return to it when it needs
+                    more practice.</small></span></div>
+            </div>
+          </section>
+
+          <section class="topic-preview-card" aria-labelledby="topic-preview-title">
+            <div class="topic-preview-top"><span class="topic-preview-icon" aria-hidden="true">⌘</span><span
+                class="topic-preview-label">TRACK BY TOPIC</span></div>
+            <h2 id="topic-preview-title">Find the patterns that connect problems.</h2>
+            <p>Topic groups can help you notice what a problem is really asking you to practice.</p>
+            <div class="topic-chips" aria-label="Example DSA topic groups">
+              <span>Arrays</span><span>Strings</span><span>Hash
+                maps</span><span>Trees</span><span>Graphs</span><span>Dynamic programming</span>
+            </div>
+            <span class="topic-preview-note">Topic labels are examples, not saved records.</span>
+          </section>
+        </aside>
+      </div>
+
+      <section class="dsa-daily-link">
+        <span class="daily-link-mark" aria-hidden="true">◷</span>
+        <div>
+          <div class="section-kicker">MAKE ROOM TO PRACTICE</div>
+          <h2>Give problem solving a place in your day.</h2>
+          <p>Add a DSA block to your daily plan when you’re ready.</p>
+        </div>
+        <a class="dsa-daily-button" href="/"><span>Open daily plan</span><span aria-hidden="true">↗</span></a>
+      </section>
+
+      <footer class="page-footer"><span>Progress comes from returning to the problem.</span><span>Bilal Master Tracker
+          <b>·</b> DSA practice</span></footer>
+    </main>
+  </div>
+</body>
+
+</html>
